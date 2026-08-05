@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>크루즈매니아 앱 열기…</title>
+  <title>Opening CruiseMania…</title>
   <style>
     body {
       margin: 0;
@@ -12,7 +12,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      font-family: -apple-system, "Segoe UI", "Noto Sans", sans-serif;
       background: linear-gradient(160deg, #0a4d8c, #0d6efd);
       color: #fff;
       text-align: center;
@@ -28,20 +28,20 @@
   </style>
 </head>
 <body>
-  <h1>🦆 크루즈매니아</h1>
-  <p>앱 스토어로 이동 중입니다…</p>
-  <a id="manual" href="#">이동이 안 되면 여기를 눌러주세요</a>
+  <h1>🦆 CruiseMania</h1>
+  <p>Taking you to the app store…</p>
+  <a id="manual" href="#">Not redirected? Tap here</a>
 
   <script>
-    // ▼▼▼ 이 두 줄만 본인 앱 주소로 바꾸세요 ▼▼▼
-    var IOS_URL     = "https://apps.apple.com/app/id1234567890";               // 아이폰 앱스토어 주소
-    var ANDROID_URL = "https://play.google.com/store/apps/details?id=kr.cruisemania.app"; // 안드로이드 플레이스토어 주소
-    var DESKTOP_URL = "https://www.instagram.com/cruisemania_kr/";             // PC로 스캔했을 때 보낼 곳 (홈페이지·인스타 등)
-    // ▲▲▲ 여기까지만 수정 ▲▲▲
+    // ▼▼▼ Replace only these two lines with your real app URLs ▼▼▼
+    var IOS_URL     = "https://apps.apple.com/app/id1234567890";                 // iPhone App Store (no country code like /kr/)
+    var ANDROID_URL = "https://play.google.com/store/apps/details?id=kr.cruisemania.app"; // Android Play Store (no &hl=... param)
+    var DESKTOP_URL = "https://www.instagram.com/cruisemania_kr/";               // For desktop scanners (website / Instagram)
+    // ▲▲▲ Nothing else needs editing ▲▲▲
 
     var ua = navigator.userAgent || navigator.vendor || window.opera;
 
-    // 아이폰/아이패드 판별 (최신 아이패드는 Mac으로 잡혀서 터치까지 확인)
+    // iPhone / iPad detection (newer iPads report as Mac, so also check touch)
     var isIOS = /iPad|iPhone|iPod/.test(ua) ||
                 (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
     var isAndroid = /android/i.test(ua);
@@ -51,7 +51,7 @@
     else if (isAndroid) target = ANDROID_URL;
 
     document.getElementById("manual").href = target;
-    window.location.replace(target); // 자동 이동
+    window.location.replace(target);
   </script>
 </body>
 </html>
